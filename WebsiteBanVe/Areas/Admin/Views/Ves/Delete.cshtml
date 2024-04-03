@@ -1,0 +1,65 @@
+﻿@model WebsiteBanVe.Models.Ve
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/AdminLayout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Ve</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.AspNetUser.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AspNetUser.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Lich_chieu.id_lich_chieu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Lich_chieu.id_lich_chieu)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.so_ghe_ngoi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.so_ghe_ngoi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ngay_mua_ve)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ngay_mua_ve)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Gio_Chieu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Gio_Chieu)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

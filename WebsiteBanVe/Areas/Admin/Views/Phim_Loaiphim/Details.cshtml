@@ -1,0 +1,43 @@
+﻿@model WebsiteBanVe.Models.Phim_Loaiphim
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/AdminLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Phim_Loaiphim</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Loai_phim.ten_loai_phim)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Loai_phim.ten_loai_phim)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Phim.ten_phim)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Phim.ten_phim)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.trangthai)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.trangthai)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

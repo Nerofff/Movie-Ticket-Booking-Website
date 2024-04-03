@@ -1,0 +1,51 @@
+﻿@model WebsiteBanVe.Models.Lich_chieu
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/AdminLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Lich_chieu</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Phim.ten_phim)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Phim.ten_phim)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Phong.ten_phong)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Phong.ten_phong)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ngay_chieu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ngay_chieu)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.gia_ve)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.gia_ve)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id_lich_chieu }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

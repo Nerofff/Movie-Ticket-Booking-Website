@@ -1,0 +1,27 @@
+﻿@model WebsiteBanVe.Models.Gio_Chieu
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/AdminLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Gio_Chieu</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.gio_bat_dau)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.gio_bat_dau)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id_gio_chieu }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,52 @@
+﻿@model IEnumerable<WebsiteBanVe.Models.Lich_chieu>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/AdminLayout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Phim.ten_phim)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Phong.ten_phong)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ngay_chieu)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.gia_ve)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Phim.ten_phim)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Phong.ten_phong)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ngay_chieu)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.gia_ve)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id_lich_chieu }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id_lich_chieu }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id_lich_chieu })
+        </td>
+    </tr>
+}
+
+</table>

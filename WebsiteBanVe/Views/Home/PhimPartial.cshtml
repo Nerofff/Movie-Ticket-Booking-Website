@@ -1,0 +1,40 @@
+﻿@model IEnumerable<WebsiteBanVe.Models.Phim>
+@foreach (var item in Model)
+{
+    <div class="movie movie--preview movie--full release">
+        <div class="col-sm-3 col-md-2 col-lg-2">
+            <div class="movie__images">
+                @*<img alt='' src="http://placehold.it/380x600">*@
+                <img alt='' src="@item.hinhanh">
+            </div>
+            <div class="movie__feature">
+                <a href="#" class="movie__feature-item movie__feature--comment">123</a>
+                <a href="#" class="movie__feature-item movie__feature--video">7</a>
+                <a href="#" class="movie__feature-item movie__feature--photo">352</a>
+            </div>
+        </div>
+
+        <div class="col-sm-9 col-md-10 col-lg-10 movie__about">
+            <a href="@Url.Action("MoviePage", "Home", new { id = item.id_phim })" class="movie__title link--huge">@item.ten_phim</a>
+
+            <p class="movie__time">@item.thoi_luong min</p>
+            <p class="movie__option"><strong>Director: </strong>@item.tacgia</p>
+            <p class="movie__option"><strong>Category: </strong>
+            <p class="movie__option"><strong>Age restriction: </strong>@item.Do_Tuoi</p>
+            <p class="movie__option"><strong>Actors: </strong>Robert De Niro, Michael Douglas,Morgan Freeman, Kevin Kline,Mary Steenburgen, Jerry Ferrara, Romany Malco ...</p>     
+
+            <div class="movie__btns">
+                @Html.ActionLink("Detail", "MoviePage", "Home", new { id = item.id_phim }, new { @class = "btn btn-md btn--warning" })
+                <a href="#" class="watchlist">Add to watchlist</a>
+            </div>
+
+            <div class="preview-footer">
+                <div class="movie__rate"><div class="score"></div><span class="movie__rate-number">170 votes</span> <span class="movie__rating">5.0</span></div>
+
+            </div>
+        </div>
+
+        <div class="clearfix"></div>
+
+    </div>
+}

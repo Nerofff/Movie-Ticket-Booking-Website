@@ -1,0 +1,127 @@
+﻿@model IEnumerable<WebsiteBanVe.Models.Phim>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/AdminLayout.cshtml";
+}
+
+<style>
+    table {
+        table-layout: fixed;
+        width: 100%;
+    }
+
+        table th,
+        table td {
+            padding: 8px;
+            text-align: left;
+            overflow-wrap: break-word;
+            word-wrap: break-word;
+        }
+
+    .image-cell {
+        width: 200px;
+        height: 150px;
+        padding: 0;
+    }
+
+        .image-cell img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+    .truncate {
+        max-width: 200px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .small-column {
+        width: 80px;
+    }
+
+    .medium-column {
+        width: 150px;
+    }
+
+    .large-column {
+        width: 250px;
+    }
+</style>
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th class="small-column">
+            @Html.DisplayNameFor(model => model.Hang_phim.ten_hang_phim)
+        </th>
+        <th class="medium-column">
+            @Html.DisplayNameFor(model => model.ten_phim)
+        </th>
+        <th class="medium-column">
+            @Html.DisplayNameFor(model => model.tacgia)
+        </th>
+        <th class="image-cell">
+            @Html.DisplayNameFor(model => model.hinhanh)
+        </th>
+        <th class="small-column">
+            @Html.DisplayNameFor(model => model.Do_Tuoi)
+        </th>
+        <th class="small-column">
+            @Html.DisplayNameFor(model => model.trang_Thai)
+        </th>
+        <th class="large-column">
+            @Html.DisplayNameFor(model => model.mo_ta)
+        </th>
+        <th class="large-column">
+            @Html.DisplayNameFor(model => model.trailer)
+        </th>
+        <th class="small-column"></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td class="small-column">
+                @Html.DisplayFor(modelItem => item.Hang_phim.ten_hang_phim)
+            </td>
+            <td class="medium-column">
+                @Html.DisplayFor(modelItem => item.ten_phim)
+            </td>
+            <td class="medium-column">
+                @Html.DisplayFor(modelItem => item.tacgia)
+            </td>
+            <td class="image-cell">
+                <img src="@item.hinhanh" />
+            </td>
+            <td class="small-column">
+                @Html.DisplayFor(modelItem => item.Do_Tuoi)
+            </td>
+            <td class="small-column">
+                @Html.DisplayFor(modelItem => item.trang_Thai)
+            </td>
+            <td class="large-column">
+                <div class="truncate">
+                    @Html.DisplayFor(modelItem => item.mo_ta)                   
+                </div>
+            </td>
+            <td class="large-column">
+                <div class="truncate">
+                    @Html.DisplayFor(modelItem => item.trailer)
+                </div>
+            </td>
+            <td class="small-column">
+                @Html.ActionLink("Edit", "Edit", new { id = item.id_phim }) |
+                @Html.ActionLink("Details", "Details", new { id = item.id_phim }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.id_phim })
+            </td>
+        </tr>
+    }
+
+</table>

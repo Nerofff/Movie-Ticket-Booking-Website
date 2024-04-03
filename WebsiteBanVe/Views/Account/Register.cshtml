@@ -1,0 +1,68 @@
+﻿@model WebsiteBanVe.Models.RegisterViewModel
+@{
+    ViewBag.Title = "Register";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- Font awesome - icon font -->
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    <!-- Roboto -->
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,700' rel='stylesheet' type='text/css'>
+    <!-- Open Sans -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:800italic' rel='stylesheet' type='text/css'>
+
+    <link href="~/Content/Register.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="signup-form">
+        @using (Html.BeginForm("Register", "Account", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+            <h2>Sign Up</h2>
+            <p>Please fill in this form to create an account!</p>
+            <hr>
+
+            <div class="form-group">
+                <div class="input-group" style="width: 100%">
+                    <span style="width: 20%" class="input-group-addon"><i class="fa fa-paper-plane"></i></span>
+                    <input style="margin:0; width: 80%" id="Email" type="email" class="form-control" name="Email" placeholder="Email Address" required="required">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="input-group" style="width: 100%">
+                    <span style="width: 20%" class="input-group-addon"><i class="fa fa-lock"></i></span>
+                    <input style="margin:0; width: 80%" id="Password" type="password" class="form-control" name="Password" placeholder="Password" required="required">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="input-group" style="width: 100%">
+                    <span style="width: 20%" class="input-group-addon">
+                        <i class="fa fa-lock"></i>
+                        <i class="fa fa-check"></i>
+                    </span>
+                    <input style="margin:0; width: 80%" id="ConfirmPassword" type="password" class="form-control" name="ConfirmPassword" placeholder="Confirm Password" required="required">
+                </div>
+            </div>
+            <div class="form-group text-center">
+                <button type="submit" class="btn btn-primary btn-lg" value="Register">Sign Up</button>
+            </div>
+            @Html.ValidationSummary("", new { @class = "text-danger" })
+            <div class="text-center">Already have an account? @Html.ActionLink("Login Now", "Login")</div>
+        }
+    </div>
+
+</body>
+</html>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

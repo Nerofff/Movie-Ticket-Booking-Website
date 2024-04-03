@@ -1,0 +1,91 @@
+﻿@model WebsiteBanVe.Models.Phim
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/AdminLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Phim</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Hang_phim.ten_hang_phim)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Hang_phim.ten_hang_phim)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ten_phim)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ten_phim)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tacgia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tacgia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.hinhanh)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.hinhanh)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.mo_ta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.mo_ta)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.trailer)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.trailer)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.thoi_luong)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.thoi_luong)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Do_Tuoi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Do_Tuoi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.trang_Thai)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.trang_Thai)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id_phim }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

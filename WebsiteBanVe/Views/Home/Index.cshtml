@@ -1,0 +1,443 @@
+﻿<!doctype html>
+<html>
+<head>
+    <!-- Basic Page Needs -->
+    <meta charset="utf-8">
+    <title>Movie</title>
+
+    <!-- Mobile Specific Metas-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="telephone=no" name="format-detection">
+
+    <!-- Fonts -->
+    <!-- Font awesome - icon font -->
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    <!-- Roboto -->
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,700' rel='stylesheet' type='text/css'>
+    <!-- Open Sans -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:800italic' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+    <!-- Stylesheets -->
+
+    <!-- Mobile menu -->
+    <link href="~/Content/MobileMenu.css" rel="stylesheet" />
+
+    <!-- Select -->
+    <link href="~/Content/SelectedBox.css" rel="stylesheet" />
+
+    <!-- Custom -->
+    <link href="~/Content/Style.css" rel="stylesheet" />
+
+    <!-- Modernizr -->
+    <script src="~/Scripts/Modernizr.js"></script>
+  
+
+</head>
+
+<body>
+    <div class="search-wrapper">
+        <div class="container container--add">
+            @using (Html.BeginForm("SearchMovie", "Home", new { area = "" }, FormMethod.Get))
+            {
+                <div id='search-form' class="search">
+                    <input type="text" class="search__field" placeholder="Search a movie" name="searchString">
+                    <button style="top:16px" type='submit' class="btn btn-md btn--danger search__button">search a movie</button>
+                </div>
+            }
+
+        </div>
+    </div>
+    <div>
+        <!--begin slider -->
+        @Html.Action("Slider", "Home", new { area = "" })
+
+        <!--end slider -->
+        <!-- Main content -->
+        <section class="container" style="padding-top:120px">
+            <div class="movie-best">
+                <div class="col-sm-10 col-sm-offset-1 movie-best__rating">New Movie</div>
+                <div class="col-sm-12 change--col">
+                    @Html.Action("NewMovie", "Home", new { area = "" })                  
+                </div>
+                <div class="col-sm-10 col-sm-offset-1 movie-best__check">check all movies now playing</div>
+            </div>
+
+            <div class="col-sm-12">
+                <div class="mega-select-present mega-select-top mega-select--full">
+                    <div class="mega-select-marker">
+                        <div class="marker-indecator location">
+                            <p class="select-marker"><span>movie to watch now</span> <br>in your city</p>
+                        </div>
+
+                        <div class="marker-indecator cinema">
+                            <p class="select-marker"><span>find your </span> <br>cinema</p>
+                        </div>
+
+                        <div class="marker-indecator film-category">
+                            <p class="select-marker"><span>find movie due to </span> <br> your mood</p>
+                        </div>
+
+                        <div class="marker-indecator actors">
+                            <p class="select-marker"><span> like particular stars</span> <br>find them</p>
+                        </div>
+
+                        <div class="marker-indecator director">
+                            <p class="select-marker"><span>admire personalities - find </span> <br>by director</p>
+                        </div>
+
+                        <div class="marker-indecator country">
+                            <p class="select-marker"><span>search for movie from certain </span> <br>country?</p>
+                        </div>
+                    </div>
+
+                    <div class="mega-select pull-right">
+                        <span class="mega-select__point">Search by</span>
+                        <ul class="mega-select__sort">
+                            <li class="filter-wrap"><a href="#" class="mega-select__filter filter--active" data-filter='location'>Location</a></li>
+                            <li class="filter-wrap"><a href="#" class="mega-select__filter" data-filter='cinema'>Cinema</a></li>
+                            <li class="filter-wrap"><a href="#" class="mega-select__filter" data-filter='film-category'>Category</a></li>
+                            <li class="filter-wrap"><a href="#" class="mega-select__filter" data-filter='actors'>Actors</a></li>
+                            <li class="filter-wrap"><a href="#" class="mega-select__filter" data-filter='director'>Director</a></li>
+                            <li class="filter-wrap"><a href="#" class="mega-select__filter" data-filter='country'>Country</a></li>
+                        </ul>
+
+                        <input name="search-input" type='text' class="select__field">
+                    </div>
+                </div>
+            </div>
+
+            <div class="clearfix"></div>
+
+            <h2 id='target' class="page-heading heading--outcontainer">Now in the cinema</h2>
+
+            <div style="padding-bottom:50px">
+                <iframe width="1170" height="725" src="https://www.youtube.com/embed/ZYrYAAu-DsQ" title="BEST UPCOMING MOVIES 2023 (Trailers)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
+
+            <div class="col-sm-12">
+                <div class="row">
+                    <div class="col-sm-8 col-md-9">
+                        <!-- Movie variant with time -->
+                        <div class="movie movie--test movie--test--dark movie--test--left">
+                            <div class="movie__images">
+                                <a href="movie-page-left.html" class="movie-beta__link">
+                                    <img style="width: 206.25px; height: 206.25px" src="~/Content/images/Movie/Kimetsu-no-Yaiba-1-game4v-1650080485-58.jpg" />
+                                </a>
+                            </div>
+
+                            <div class="movie__info">
+                                <a href="@Url.Action("MoviePage", "Home", new { id = 2 })" class="movie__title"> Kimetsu No Yaiba </a>
+
+                                <p class="movie__time">120 min</p>
+
+                                <p class="movie__option"><a href="#">Sci-Fi</a> | <a href="#">Anime</a> | <a href="#">Action</a></p>
+
+                                <div class="movie__rate">
+                                    <div class="score"></div>
+                                    <span class="movie__rating">4.1</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Movie variant with time -->
+                        <!-- Movie variant with time -->
+                        <div class="movie movie--test movie--test--light movie--test--left">
+                            <div class="movie__images">
+                                <a href="movie-page-left.html" class="movie-beta__link">                                    
+                                    <img style="width: 206.25px; height: 206.25px" src="~/Content/images/Movie/darkknightrises_warnerbros.jpg" />
+                                </a>
+                            </div>
+
+                            <div class="movie__info">
+                                <a href="@Url.Action("MoviePage", "Home", new { id = 10 })" class="movie__title">The Dark Knight </a>
+
+                                <p class="movie__time">169 min</p>
+
+                                <p class="movie__option"><a href="#">Adventure</a> | <a href="#">Action</a> | <a href="#">Drama</a></p>
+
+                                <div class="movie__rate">
+                                    <div class="score"></div>
+                                    <span class="movie__rating">5.0</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Movie variant with time -->
+                        <!-- Movie variant with time -->
+                        <div class="movie movie--test movie--test--light movie--test--right">
+                            <div class="movie__images">
+                                <a href="movie-page-left.html" class="movie-beta__link">
+                                    <img style="width: 206.25px; height: 206.25px" src="~/Content/images/Movie/Screenshot 2023-06-14 232508.png" />
+                                </a>
+                            </div>
+
+                            <div class="movie__info">
+                                <a href="@Url.Action("MoviePage", "Home", new { id = 7 })" class="movie__title">Dead Pool </a>
+
+                                <p class="movie__time">146 min</p>
+
+                                <p class="movie__option"><a href="#">Action</a> | <a href="#">Comedy</a> | <a href="#">Action</a></p>
+
+                                <div class="movie__rate">
+                                    <div class="score"></div>
+                                    <span class="movie__rating">4.9</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Movie variant with time -->
+                        <!-- Movie variant with time -->
+                        <div class="movie movie--test movie--test--dark movie--test--right">
+                            <div class="movie__images">
+                                <a href="movie-page-left.html" class="movie-beta__link">
+                                    <img style="width: 206.25px; height: 206.25px" src="~/Content/images/Movie/Screenshot 2023-06-14 232745.png" />
+                                </a>
+                            </div>
+
+                            <div class="movie__info">
+                                <a href="@Url.Action("MoviePage", "Home", new { id = 9 })" class="movie__title">Star Wars </a>
+
+                                <p class="movie__time">112 min</p>
+
+                                <p class="movie__option"><a href="#">Action</a> | <a href="#">Adventure</a> | <a href="#">Sci-Fi</a></p>
+
+                                <div class="movie__rate">
+                                    <div class="score"></div>
+                                    <span class="movie__rating">5.0</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Movie variant with time -->
+                        <!-- Movie variant with time -->
+                        <div class="movie movie--test movie--test--dark movie--test--left">
+                            <div class="movie__images">
+                                <a href="movie-page-left.html" class="movie-beta__link">
+                                    <img style="width: 206.25px; height: 206.25px" src="~/Content/images/Movie/Screenshot 2023-06-14 233406.png" />
+                                </a>
+                            </div>
+
+                            <div class="movie__info">
+                                <a href="@Url.Action("MoviePage", "Home", new { id = 6 })" class="movie__title">Carl's Date </a>
+
+                                <p class="movie__time">116 min</p>
+
+                                <p class="movie__option"><a href="#">Cartoon</a> | <a href="#">Adventure</a> 
+
+                                <div class="movie__rate">
+                                    <div class="score"></div>
+                                    <span class="movie__rating">4.1</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Movie variant with time -->
+                        <!-- Movie variant with time -->
+                        <div class="movie movie--test movie--test--light movie--test--left">
+                            <div class="movie__images">
+                                <a href="movie-page-left.html" class="movie-beta__link">
+                                    <img style="width: 206.25px; height: 206.25px" src="~/Content/images/Movie/Screenshot 2023-06-14 233758.png" />
+                                </a>
+                            </div>
+
+                            <div class="movie__info">
+                                <a href="@Url.Action("MoviePage", "Home", new { id = 11 })" class="movie__title">The Croods </a>
+
+                                <p class="movie__time">153 min</p>
+
+                                <p class="movie__option"><a href="#">Crime</a> | <a href="#">Cartoon</a> | <a href="#">Comedy</a></p>
+
+                                <div class="movie__rate">
+                                    <div class="score"></div>
+                                    <span class="movie__rating">5.0</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Movie variant with time -->
+                        <!-- Movie variant with time -->
+                        <div class="movie movie--test movie--test--light movie--test--right">
+                            <div class="movie__images">
+                                <a href="movie-page-left.html" class="movie-beta__link">
+                                    <img style="width: 206.25px; height: 206.25px" src="~/Content/images/Movie/Screenshot 2023-06-14 234434.png" />
+                                </a>
+                            </div>
+
+                            <div class="movie__info">
+                                <a href="@Url.Action("MoviePage", "Home", new { id = 5 })" class="movie__title"> Transformers: Rise of the Beasts </a>
+
+                                <p class="movie__time">107 min</p>
+
+                                <p class="movie__option"><a href="#">Action</a> | <a href="#">Mecha</a></p>
+
+                                <div class="movie__rate">
+                                    <div class="score"></div>
+                                    <span class="movie__rating">4.9</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Movie variant with time -->
+                        <!-- Movie variant with time -->
+                        <div class="movie movie--test movie--test--dark movie--test--right">
+                            <div class="movie__images">
+                                <a href="movie-page-left.html" class="movie-beta__link">
+                                    <img style="width: 206.25px; height: 206.25px" src="~/Content/images/Movie/Screenshot 2023-06-14 234752.png" />
+                                </a>
+                            </div>
+
+                            <div class="movie__info">
+                                <a href="@Url.Action("MoviePage", "Home", new { id = 1 })">Black Panther </a>
+
+                                <p class="movie__time">112 min</p>
+
+                                <p class="movie__option"><a href="#">Comedy</a></p>
+
+                                <div class="movie__rate">
+                                    <div class="score"></div>
+                                    <span class="movie__rating">5.0</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Movie variant with time -->
+
+
+                        <div class="row">
+                            <div class="social-group">
+                                <div class="col-sm-6 col-md-4 col-sm-push-6 col-md-push-4">
+                                    <div class="social-group__head">Join <br>our social groups</div>
+                                    <div class="social-group__content">A lot of fun, discussions, queezes and contests among members. <br class="hidden-xs"><br>Always be first to know about best offers from cinemas and our partners</div>
+                                </div>
+
+                                <div class="col-sm-6 col-md-4 col-sm-pull-6 col-md-pull-4">
+                                    <div class="facebook-group">
+
+                                        <iframe class="fgroup" src="http://www.facebook.com/plugins/likebox.php?href=https%3A%2F%2Fwww.facebook.com%2Fthemeforest&amp;width=240&amp;height=330&amp;colorscheme=light&amp;show_faces=true&amp;header=false&amp;stream=false&amp;show_border=false" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:240px; height:330px;" allowTransparency="true"></iframe>
+                                    </div>
+                                </div>
+
+                                <div class="clearfix visible-sm"></div>
+                                <div class="col-sm-6 col-md-4">
+                                    <div class="twitter-group">
+                                        <div id="twitter-feed"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <aside class="col-sm-4 col-md-3">
+                        <div class="sitebar first-banner--left">
+                            <div class="banner-wrap first-banner--left">
+                                <img alt='banner' src="http://placehold.it/500x500">
+                            </div>
+
+                            <div class="banner-wrap">
+                                <img alt='banner' src="http://placehold.it/500x500">
+                            </div>
+
+                            <div class="banner-wrap banner-wrap--last">
+                                <img alt='banner' src="http://placehold.it/500x500">
+                            </div>
+
+                            <div class="promo marginb-sm">
+                                <div class="promo__head">Q&M Movie app</div>
+                                <div class="promo__describe">for smartphones<br> and tablets</div>
+                                <div class="promo__content">
+                                    <ul>
+                                        <li class="store-variant"><a href="#"><img alt='' src="images/apple-store.svg"></a></li>
+                                        <li class="store-variant"><a href="#"><img alt='' src="images/google-play.svg"></a></li>
+                                        <li class="store-variant"><a href="#"><img alt='' src="images/windows-store.svg"></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                        </div>
+                    </aside>
+                </div>
+            </div>
+            <!--------------->
+
+
+            <div class="col-sm-12">
+                <h2 class="page-heading">Latest news</h2>
+
+                <div class="col-sm-4 similar-wrap col--remove">
+                    <div class="post post--preview post--preview--wide">
+                        <div class="post__image">
+                            <img alt='' src="http://placehold.it/270x330">
+                        </div>
+                        <p class="post__date">22 Feb 2023 </p>
+                        <a href="single-page-left.html" class="post__title">"Thor: The Dark World" - World Premiere</a>
+                        <a href="single-page-left.html" class="btn read-more post--btn">read more</a>
+                    </div>
+                </div>
+                <div class="col-sm-4 similar-wrap col--remove">
+                    <div class="post post--preview post--preview--wide">
+                        <div class="post__image">
+                            <img alt='' src="http://placehold.it/270x330">
+                        </div>
+                        <p class="post__date">22 Feb 2023 </p>
+                        <a href="single-page-left.html" class="post__title">30th Annual Night Of Stars Presented By The Fashion Group International</a>
+                        <a href="single-page-left.html" class="btn read-more post--btn">read more</a>
+                    </div>
+                </div>
+                <div class="col-sm-4 similar-wrap col--remove">
+                    <div class="post post--preview post--preview--wide">
+                        <div class="post__image">
+                            <img alt='' src="http://placehold.it/270x330">
+                        </div>
+                        <p class="post__date">22 Feb 2023 </p>
+                        <a href="single-page-left.html" class="post__title">Hollywood Film Awards 2023</a>
+                        <a href="single-page-left.html" class="btn read-more post--btn">read more</a>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <div class="clearfix"></div>
+    </div>
+
+
+    <!-- JavaScript-->
+    <!-- jQuery 1.9.1-->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+    <script> window.jQuery || document.write('<script src="js/external/jquery-1.10.1.min.js"><\/script>')</script>
+    <!-- Migrate -->
+    <script src="~/Scripts/js/jquery-migrate-1.2.1.min.js"></script>
+    <!-- jQuery UI -->
+    <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+
+    <!-- Bootstrap 3-->
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
+
+    <!-- Mobile menu -->
+    <script src="~/Scripts/js/jquery.mobile.menu.js"></script>
+    <!-- Select -->
+
+    <script src="~/Scripts/js/modernizr.custom.js"></script>
+    <script src="~/Scripts/js/jquery.selectbox-0.2.min.js"></script>
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+
+    <!-- Stars rate -->
+    <script src="~/Scripts/js/jquery.raty.js"></script>
+
+    <!-- Form element -->
+    <script src="~/Scripts/js/form-element.js"></script>
+
+    <!-- Form validation -->
+    <script src="~/Scripts/js/form.js"></script>
+
+    <!-- Custom -->
+    <script src="~/Scripts/js/custom.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            init_Index();
+        });
+    </script>
+
+</body>
+</html>

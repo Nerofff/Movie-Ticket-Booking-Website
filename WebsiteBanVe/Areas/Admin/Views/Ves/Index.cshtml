@@ -1,0 +1,58 @@
+﻿@model IEnumerable<WebsiteBanVe.Models.Ve>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/AdminLayout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.AspNetUser.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Lich_chieu.id_lich_chieu)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.so_ghe_ngoi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ngay_mua_ve)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Gio_Chieu)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.AspNetUser.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Lich_chieu.id_lich_chieu)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.so_ghe_ngoi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ngay_mua_ve)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Gio_Chieu)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id_ve }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id_ve }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id_ve })
+        </td>
+    </tr>
+}
+
+</table>

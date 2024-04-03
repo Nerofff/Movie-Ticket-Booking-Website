@@ -1,0 +1,46 @@
+﻿
+@{
+    ViewBag.Title = "AdminPage";
+    Layout = "~/Views/AdminLayout.cshtml";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Trang của bạn</title>
+    <style>
+        /* Định dạng cho tiêu đề h2 */
+        h2 {
+            color: #333;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        /* Định dạng cho các liên kết */
+        a {
+            display: block;
+            margin-bottom: 10px;
+            color: #555;
+            text-decoration: none;
+        }
+
+            a:hover {
+                color: #000;
+            }
+
+            /* Định dạng cho liên kết khi được nhấp vào */
+            a:active {
+                color: #ff0000;
+            }
+    </style>
+</head>
+<body>
+    <h2>Quản lí dữ liệu</h2>
+    <a href="~/Admin/Phims/Index">Phim</a>
+    <a href="~/Admin/Raps/Index">Rạp</a>
+    <a href="~/Admin/Lich_chieu/Index">Lịch chiếu</a>
+    <a href="~/Admin/Gio_Chieu/Index">Giờ chiếu</a>
+    <a href="~/Admin/Lich_chieu_Gio_chieu/Index">Lịch chiếu - giờ chiếu</a>
+    <a href="~/Admin/Hang_phim/Index">Hãng phim</a>
+    <a href="~/Admin/Ves/Index">Vé</a>
+</body>
+</html>

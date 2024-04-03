@@ -1,0 +1,14 @@
+﻿@model IEnumerable<WebsiteBanVe.Models.Rap>
+
+@foreach (var item in Model)
+{
+    <div class="col-xs-6 col-sm-3 cinema-item name">
+        <div class="cinema">
+            <a href='single-cinema.html' class="cinema__images">
+                <img alt='' src="http://placehold.it/525x525">
+                <span class="cinema-rating">5.0</span>
+            </a>
+            <a href="single-cinema.html" class="cinema-title">@item.ten_rap</a>
+        </div>
+    </div>
+}

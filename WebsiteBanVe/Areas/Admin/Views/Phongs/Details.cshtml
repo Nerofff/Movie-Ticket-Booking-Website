@@ -1,0 +1,35 @@
+﻿@model WebsiteBanVe.Models.Phong
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/AdminLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Phong</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Rap.ten_rap)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Rap.ten_rap)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ten_phong)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ten_phong)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id_phong }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

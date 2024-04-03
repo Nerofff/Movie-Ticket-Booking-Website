@@ -1,0 +1,155 @@
+﻿@using Microsoft.AspNet.Identity
+<!Doctype html>
+<html>
+<head>
+    <!-- Basic Page Needs -->
+    <meta charset="utf-8">
+    <title>Movie</title>
+    <!-- Mobile Specific Metas-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="telephone=no" name="format-detection">
+
+    <!-- Fonts -->
+    <!-- Font awesome - icon font -->
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    <!-- Roboto -->
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,700' rel='stylesheet' type='text/css'>
+    <!-- Open Sans -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:800italic' rel='stylesheet' type='text/css'>
+
+    <!-- Stylesheets -->
+    <!-- Mobile menu -->
+    <link href="~/Content/MobileMenu.css" rel="stylesheet" />
+    <!-- Select -->
+    <link href="~/Content/SelectedBox.css" rel="stylesheet" />
+
+    <!-- Custom -->
+    <link href="~/Content/Style.css" rel="stylesheet" />
+
+
+    <!-- Modernizr -->
+    <script src="~/Scripts/Modernizr.js"></script>
+
+</head>
+
+<body>
+    <div class="wrapper">
+        <!-- Header section -->
+        <!-- Header section -->
+        <section>
+            <header class="header-wrapper header-wrapper--home">
+                <div class="container">
+                    <!-- Logo link-->
+                    <a href="@Url.Action("Index", "Home", new { area = "" })" class="logo">
+                        <img src="~/Content/images/LogoIcon/LogoPNG.jpg" />
+                    </a>
+
+                    <!-- Main website navigation-->
+                    <nav id="navigation-box">
+                        <!-- Toggle for mobile menu mode -->
+                        <a href="#" id="navigation-toggle">
+                            <span class="menu-icon">
+                                <span class="icon-toggle" role="button" aria-label="Toggle Navigation">
+                                    <span class="lines"></span>
+                                </span>
+                            </span>
+                        </a>
+
+                        <!-- Link navigation -->
+                        <ul id="navigation">
+                            <li>
+                                <span class="sub-nav-toggle plus"></span>
+                                @Html.ActionLink("Home", "Index", "Home", new { area = "" })
+                                <ul>
+                                    <li class="menu__nav-item"><a href="#">About Us (Chưa làm)</a></li>
+                                    <li class="menu__nav-item"><a href="#">Support (Chưa làm)</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <span class="sub-nav-toggle plus"></span>
+
+                                @Html.ActionLink("Rạp phim", "CinemaList", "Home", new { area = "" })
+                            </li>
+                            <li>
+                                <span class="sub-nav-toggle plus"></span>
+                                @Html.ActionLink("Phim đang chiếu", "MovieListFull", "Home", new { area = "" })
+                                <ul>
+                                    <li class="menu__nav-item"><a href="@Url.Action("MovieListFull", "Home")">Đang chiếu</a></li>
+                                    <li class="menu__nav-item"><a href="#">Sắp chiếu (Chưa làm) </a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <span class="sub-nav-toggle plus"></span>
+                                <a href="#">News</a>
+                                <ul>
+                                    <li class="menu__nav-item"><a href="#">1 news(Thiếu DB)</a></li>
+                                    <li class="menu__nav-item"><a href="#">2 news</a></li>
+                                    <li class="menu__nav-item"><a href="#">3 news</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <span class="sub-nav-toggle plus"></span>
+                                <a href="~/Admin/Home/AdminPage">Trang Admin</a>                           
+                            </li>
+                        </ul>
+                    </nav>
+
+                    <!-- Additional header buttons / Auth and direct link to booking-->
+                    <div class="control-panel">
+                        <a href="@Url.Action("MovieListFull", "Home", new { area = "" })" class="btn btn-md btn--warning btn--book btn-control--home login-window">Book a ticket</a>
+                    </div>
+                </div>
+            </header>
+            <img src="~/Content/images/Banner/1519x5gray.png" />
+        </section>
+
+        <div class="container">
+
+            <div class="row">
+
+                @RenderBody()
+
+            </div>
+
+        </div>
+    </div>
+
+    <!-- JavaScript-->
+    <!-- jQuery 1.9.1-->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/external/jquery-1.10.1.min.js"><\/script>')</script>
+    <!-- Migrate -->
+    <script src="js/external/jquery-migrate-1.2.1.min.js"></script>
+    <!-- Bootstrap 3-->
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
+
+    <!-- jQuery REVOLUTION Slider -->
+    <script type="text/javascript" src="rs-plugin/js/jquery.themepunch.plugins.min.js"></script>
+    <script type="text/javascript" src="rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
+
+    <!-- Mobile menu -->
+    <script src="js/jquery.mobile.menu.js"></script>
+    <!-- Select -->
+    <script src="js/external/jquery.selectbox-0.2.min.js"></script>
+    <!-- Stars rate -->
+    <script src="js/external/jquery.raty.js"></script>
+
+    <!-- Form element -->
+    <script src="js/external/form-element.js"></script>
+    <!-- Form validation -->
+    <script src="js/form.js"></script>
+
+    <!-- Twitter feed -->
+    <script src="js/external/twitterfeed.js"></script>
+
+    <!-- Custom -->
+    <script src="js/custom.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            init_Home();
+        });
+    </script>
+    @RenderSection("scripts", required: false)
+</body>
+</html>

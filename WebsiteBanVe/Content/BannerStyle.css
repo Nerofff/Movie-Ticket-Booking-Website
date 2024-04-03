@@ -1,0 +1,53 @@
+﻿.bannerslide{
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+}
+.wp-slider{
+    width: 1000px;
+    height: 600px;
+    border-radius:10px;
+    overflow: hidden;
+}
+
+.slides input[type = 'radio']{
+    display: none;
+}
+
+.slides{
+    width: 500%;
+    display: flex;
+}
+
+.active {
+    transition: 1s;
+}
+
+.navigation{
+    position: absolute;
+    width: 1000px;
+    height: 30px;
+    margin-top: -40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navigation label{
+    width: 15px;
+    height: 15px;
+    border: 2px solid white;
+    margin: 0px 20px;
+
+}
+
+#radio1:checked ~ .active{
+    margin-left: 0;
+}
+#radio2:checked ~ .active {
+    margin-left: 0;
+}
+#radio3:checked ~ .active {
+    margin-left: 0;
+}

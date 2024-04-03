@@ -1,0 +1,27 @@
+﻿@model WebsiteBanVe.Models.Dien_Vien
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/AdminLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Dien_Vien</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ten_dien_vien)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ten_dien_vien)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id_dien_vien }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

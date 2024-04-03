@@ -1,0 +1,27 @@
+﻿@model WebsiteBanVe.Models.Hang_phim
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/AdminLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Hang_phim</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ten_hang_phim)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ten_hang_phim)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id_hang_phim }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

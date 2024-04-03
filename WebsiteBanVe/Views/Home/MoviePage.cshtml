@@ -1,0 +1,208 @@
+﻿@model WebsiteBanVe.Models.Phim
+
+
+@{
+    ViewBag.Title = "Detail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!doctype html>
+<html>
+<head>
+    <!-- Basic Page Needs -->
+    <meta charset="utf-8">
+    <meta name="description" content="A Template by Gozha.net">
+    <meta name="keywords" content="HTML, CSS, JavaScript">
+    <meta name="author" content="Gozha.net">
+
+    <!-- Mobile Specific Metas-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="telephone=no" name="format-detection">
+
+    <!-- Fonts -->
+    <!-- Font awesome - icon font -->
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    <!-- Roboto -->
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!-- Stylesheets -->
+    <!-- Mobile menu -->
+
+    <link href="~/Content/gozha-nav.css" rel="stylesheet" />
+    <!-- Select -->
+
+    <link href="~/Content/jquery.selectbox.css" rel="stylesheet" />
+
+    <!-- Custom -->
+    <link href="~/Content/Style.css" rel="stylesheet" />
+
+    <!-- Modernizr -->
+
+    <script src="~/Scripts/js/modernizr.custom.js"></script>
+
+    <!-- jQuery UI -->
+    <!--<link href="http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css" rel="stylesheet">-->
+    <!-- Swiper slider -->
+    <link href="css/external/idangerous.swiper.css" rel="stylesheet" />
+
+    <!-- DatePicker -->
+
+    <link href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" rel="stylesheet" />
+
+    <!-- JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+</head>
+
+<body>
+    <div class="wrapper">
+        <!-- Search bar -->
+        <div class="search-wrapper">
+            <div class="container container--add">
+                @using (Html.BeginForm("SearchMovie", "Home", new { area = "" }, FormMethod.Get))
+                {
+                    <div id='search-form' class="search">
+                        <input type="text" class="search__field" placeholder="Search a movie" name="searchString">
+                        <button type='submit' class="btn btn-md btn--danger search__button">search a movie</button>
+                    </div>
+                }
+
+            </div>
+        </div>
+
+        <!-- Main content -->
+        <section class="container">
+            <div class="col-sm-12">
+                <div class="movie">
+                    <h2 class="page-heading">@Model.ten_phim</h2>
+
+                    <div class="movie__info">
+                        <div class="col-sm-4 col-md-3 movie-mobile">
+                            <div class="movie__images">
+                                <span class="movie__rating">5.0</span>
+                                <img alt='' src="@Model.hinhanh">
+                            </div>
+                        </div>
+
+                        <div class="col-sm-8 col-md-9">
+                            <p class="movie__time">@Model.thoi_luong min</p>
+                            <p class="movie__option"><strong>Director: </strong><a href="#">@Model.tacgia</a></p>
+                            <p class="movie__option"><strong>Category: </strong>
+                            <p class="movie__option"><strong>Age restriction: </strong><a href="#">@Model.Do_Tuoi</a></p>
+
+                            <div class="movie__btns movie__btns--full">
+                                <a href="#" class="btn btn-md btn--warning">book a ticket for this movie</a>
+                                <a href="#" class="watchlist">Add to watchlist</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="clearfix"></div>
+
+                    <h2 class="page-heading">The plot</h2>
+
+                    <p class="movie__describe"> @Model.mo_ta </p>
+
+                    <h2 class="page-heading">Trailer</h2>
+                    <iframe width="1024" height="576" src="@Model.trailer" title="Thanh Gươm Diệt Quỷ: Làng Thợ Rèn (Kimetsu no Yaiba: Swordsmith Village Arc) | Trailer Chính Thức" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+
+
+                </div>
+                @Html.Action("BookingPartial", "Home", new { id_phim = Model.id_phim, area = "" })
+                @*@Html.Action("BookingPartial", "Home", new { id = Model.id_phim })*@
+
+                <h2 class="page-heading">showtime &amp; tickets</h2>
+                <div class="choose-container">
+                    @using (Html.BeginForm("Search", "Home", new { area = "" }, FormMethod.Get))
+                    {
+                        <div id='search-form' class="search">
+                            <input type="text" placeholder="2023-06-16 (YYYY-MM-DD)" name="NgaySearch">
+                            <input type="number" name="id_phim" value="@Model.id_phim" style="display: none">
+                            <button type='submit'>Search</button>
+                        </div>
+                    }
+
+
+                    <div class="clearfix"></div>
+
+                    <div class="time-select">
+                        <div class="time-select__group group--first">
+                            <div class="col-sm-4">
+                                <p class="time-select__place">Q&M Thu Duc</p>
+                            </div>
+                            <ul class="col-sm-8 items-wrap">
+                                @Html.Action("GetTime", "Home", new { id_phim = Model.id_phim, area = "" })
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!----------------------------------  Form truyền dữ liệu đặt vé  ------------------------------------------->
+                    @using (Html.BeginForm("NhapVe", "Home", new { area = "" }, FormMethod.Get))
+                    {
+                        <h3 style="margin-bottom: 5px;">Số ghế</h3>
+                        <input id="selectedSeats" type="text" readonly name="selectedSeats" style="margin-bottom: 10px;" />
+                        <h3 style="margin-bottom: 5px;">Giá tổng</h3>
+                        <input id="totalTicketPrice" type="number" readonly name="totalTicketPrice" style="margin-bottom: 10px;" />
+                        <input type="text" readonly name="id_phim" value="@Model.id_phim" style="display: none;" />
+                        <br />
+                        <button type="submit" style="margin-top: 10px; margin-left: 20px; background-color: teal; color: white;">Đặt vé</button>
+                    }
+
+                </div>
+            </div>
+
+        </section>
+    </div>
+
+    <script>
+        $(function () {
+            $('.datepicker').datepicker();
+        });
+    </script>
+
+    <!-- JavaScript-->
+    <!-- jQuery 1.9.1-->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="~/Scripts/js/jquery-1.10.1.min.js"><\/script>')</script>
+    <!-- Migrate -->
+    <script src="~/Scripts/js/jquery-migrate-1.2.1.min.js"></script>
+    <!-- Bootstrap 3-->
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
+
+    <!-- Mobile menu -->
+
+    <script src="~/Scripts/js/jquery.mobile.menu.js"></script>
+    <!-- Select -->
+
+    <script src="~/Scripts/js/jquery.selectbox-0.2.min.js"></script>
+
+    <!-- Form element -->
+
+    <script src="~/Scripts/js/form-element.js"></script>
+    <!-- Form validation -->
+
+    <script src="~/Scripts/js/form.js"></script>
+
+    <!-- Custom -->
+
+    <script src="~/Scripts/js/custom.js"></script>
+
+    <script src="~/Scripts/js/idangerous.swiper.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            init_BookingOne();
+        });
+        $(document).ready(function () {
+            init_BookingTwo();
+        });      
+    </script>
+
+</body>
+</html>
